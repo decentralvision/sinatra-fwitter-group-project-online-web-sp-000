@@ -2,10 +2,18 @@
 
 
 </br>
+<<<<<<< HEAD
 <form action="/tweets/<%=@tweet.id%>/edit" method="POST">
+=======
+<form action="/tweets/<%=@tweet.id%>/edit/" method="POST">
+>>>>>>> 8069261b92b99acb79049d39571af089c647b7e2
   <input type="hidden" name="_method" value="PATCH">
   <label for="content"> Tweet </label>
   <input id="content" type="text" name="content" value="<%=@tweet.content%>">
   </br>
+<<<<<<< HEAD
   <input id="submit" type="submit" value="Save">
+=======
+  <input id="submit" type="submit" value="Edit">
+>>>>>>> 8069261b92b99acb79049d39571af089c647b7e2
 </form>

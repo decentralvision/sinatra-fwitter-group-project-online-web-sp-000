@@ -28,8 +28,13 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id' do
+<<<<<<< HEAD
     if logged_in?
       @tweet = Tweet.find(params[:id])
+=======
+    @tweet = Tweet.find(params[:id])
+    if logged_in? && users_tweet?
+>>>>>>> 8069261b92b99acb79049d39571af089c647b7e2
       erb :'/tweets/show_tweet'
     else
       redirect '/login'
@@ -37,6 +42,7 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id/edit' do
+<<<<<<< HEAD
     if logged_in?
       @tweet = Tweet.find(params[:id])
       if @tweet && users_tweet?
@@ -44,6 +50,11 @@ class TweetsController < ApplicationController
       else
         redirect '/tweets'
       end
+=======
+    @tweet = Tweet.find(params[:id])
+    if logged_in? && users_tweet?
+      erb :'/tweets/edit_tweet'
+>>>>>>> 8069261b92b99acb79049d39571af089c647b7e2
     else
       redirect '/login'
     end
@@ -51,6 +62,7 @@ class TweetsController < ApplicationController
 
   patch '/tweets/:id/edit' do
     @tweet = Tweet.find(params[:id])
+<<<<<<< HEAD
     if params[:content].empty?
       redirect "/tweets/#{params[:id]}/edit"
     else
@@ -69,6 +81,13 @@ class TweetsController < ApplicationController
     if logged_in? && users_tweet?
       @tweet.delete
       redirect "/tweets"
+=======
+    if logged_in? && users_tweet?
+
+      @tweet.update(params[:tweet])
+      @tweet.save
+      redirect "/tweets/#{@tweet.id}"
+>>>>>>> 8069261b92b99acb79049d39571af089c647b7e2
     else
       redirect '/login'
     end
